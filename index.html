@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="A simple, private to-do list that saves your tasks in this browser.">
+  <title>Daylist — To-do list</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Daylist home">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span>daylist</span>
+      </a>
+      <span class="privacy-note"><span class="privacy-dot" aria-hidden="true"></span> Saved on this device</span>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow" id="today-label">YOUR DAY, YOUR WAY</p>
+      <h1 id="page-title">Make room for<br><span>what matters.</span></h1>
+      <p class="intro-copy">A little progress adds up. What would you like to get done?</p>
+    </section>
+
+    <section class="todo-card" aria-label="To-do list">
+      <form class="add-form" id="task-form">
+        <label class="sr-only" for="task-input">Add a task</label>
+        <span class="input-plus" aria-hidden="true">＋</span>
+        <input id="task-input" name="task" type="text" maxlength="160" placeholder="Add a task to your list..." autocomplete="off" required>
+        <button class="add-button" type="submit">Add task <span aria-hidden="true">↗</span></button>
+      </form>
+
+      <div class="list-heading">
+        <h2>Tasks <span class="task-count" id="task-count">0</span></h2>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button type="button" class="filter-button active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-button" data-filter="active" aria-pressed="false">To do</button>
+          <button type="button" class="filter-button" data-filter="completed" aria-pressed="false">Done</button>
+        </div>
+      </div>
+
+      <ul class="task-list" id="task-list" aria-label="Your tasks" aria-live="polite"></ul>
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon" aria-hidden="true">✳</div>
+        <p class="empty-title">Nothing on the list yet</p>
+        <p class="empty-copy">Add your first task above and get started.</p>
+      </div>
+
+      <footer class="list-footer">
+        <span id="remaining-count">0 tasks left</span>
+        <button class="clear-button" id="clear-completed" type="button">Clear completed</button>
+      </footer>
+    </section>
+
+    <p class="storage-message" id="storage-message" role="status" hidden>Local storage is unavailable. Your tasks may not be saved after closing this page.</p>
+    <footer class="page-footer">Small steps. Good things. <span aria-hidden="true">✦</span></footer>
+  </main>
+  <noscript><p class="noscript">Please enable JavaScript to use your to-do list.</p></noscript>
+</body>
+</html>
